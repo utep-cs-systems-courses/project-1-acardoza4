@@ -8,11 +8,15 @@ typedef struct s_Item {
 } Item;
 
 typedef struct s_List {
-  struct s_Item *root;
+  struct s_Item *head;
+  struct s_Item *tail;
 } List;
 
 /* Initialize the linked list to keep the history. */
 List* init_history();
+
+/* Gets the total length of the string */
+int length_of_str(char *str);
 
 /* Add a history item to the end of the list.
    List* list - the linked list
@@ -25,10 +29,10 @@ void add_history(List *list, char *str);
    int id - the id of the Item to find */
 char *get_history(List *list, int id);
 
-/ *Print the entire contents of the list. */
+/* Print the entire contents of the list. */
 void print_history(List *list);
 
-/ *Free the history list and the strings it references. */
+/* Free the history list and the strings it references. */
 void free_history(List *list);
 
 #endif
